@@ -1,0 +1,211 @@
+Pseudo code for iteration 3:
+function frame0():
+    create root window
+    set window title to "Login"
+    sum_1= 0
+    order=[]
+    
+    create frame_0
+    set frame_0  size to 310x100
+    
+    define age function:
+         age_num =get age_entry 
+        if age_num is between 13 and 18:
+            run frame_1()
+        else:
+            display message box "Your age must be between 13-18"
+    
+    age_lbl=label: "Please enter your age"
+    grid age_lbl
+
+   age_entry= entry
+   gird age_entry  
+
+   age_button button with text "Login" and command age()
+   grid age_button
+
+function frame_1():
+    create frame1
+    set frame1 size to 360x250
+    
+    define add_acc():
+        ac_account =get entry_name 
+        password=get entryPass value 
+        if ac_account or password is empty:
+           	messagebox:"Please make an entry"
+            	return
+        open "account.txt" file in append mode.
+        File=write(ac_account) and password to the file
+        display info message "Username or password has been added."
+    
+    define login():
+        account=get entry name 
+        password=get entryPass   
+        if account or password is empty:
+            display error message "Missing Information"
+            return
+        open "account.txt" file in read mode
+login_now=file.readlines()
+        for i in login_now:
+            split the line by ":" into account_login and ac_password
+            if ac_account=account_login and password=ac_password:
+                run frame_2 function.
+                Return
+        Else:
+        	Messagebox:"Username or password is incorrect."
+    
+    define reset():
+        found=False
+        ac_account= get entry_name
+        password= get entry_pass 
+        open account.txt as file: 
+	work=file.readlines()
+        for I in work:
+	split the line by ":" into account_login and ac_password
+	if ac_account= account_login and account_password=password
+	clear txt file.
+	found = True
+       if found:
+	messagebox:”Your password has been removed”
+       If not found:
+	Message box:”Incorrect password”
+ 	Return
+
+    create entry_name entry widget
+    create entryPass entry widget
+    create add_button button with text "Add Account" and command add_acc()
+    create login_button button with text "Login" and command login()
+    create reset_button button with text "Reset Password" and command reset()
+    
+function frame_2():
+    set root geometry to '300x200'
+    create a new frame called frame2
+    set frame2 grid position to (0, 0) with sticky='nsew'
+    set root title to "Menu"
+
+    create a list category_names from keys of BDSC_MENU[4]
+    create a list category_price from values of BDSC_MENU[4]
+
+    create a list category_names2 from keys of BDSC_MENU[3]
+    create a list category_price2 from values of BDSC_MENU[3]
+
+    create a list category_names3 from keys of BDSC_MENU[2]
+    create a list category_price3 from values of BDSC_MENU[2]
+
+    create a list category_names4 from keys of BDSC_MENU[1]
+    create a list category_price4 from values of BDSC_MENU[1]
+
+    create a label called order_label with text "What would you like to order?"
+    set order_label grid position to (1, 0)
+
+   create a combobox called combo with values as formatted strings of category_names and category_price
+    set combo default value to "Frozen"
+    set combo grid position to (2, 0)
+
+    create a spinbox called spinbox1 with range from 0 to 10 and width 5
+    set spinbox1 grid position to (2, 1)
+
+    create a combobox called combo2 with values as formatted strings of category_names2 and category_price2
+    set combo2 default value to "Snacks"
+    set combo2 grid position to (3, 0)
+
+    create a spinbox called spinbox2 with range from 0 to 10 and width 5
+    set spinbox2 grid position to (3, 1)
+
+    create a combobox called combo3 with values as formatted strings of category_names3 and category_price3
+    set combo3 default value to "Lunch"
+    set combo3 grid position to (4, 0)
+
+    create a spinbox called spinbox3 with range from 0 to 10 and width 5
+    set spinbox3 grid position to (4, 1)
+
+    create a combobox called combo4 with values as formatted strings of category_names4 and category_price4
+    set combo4 default value to "Drinks"
+    set combo4 grid position to (5, 0)
+
+    create a spinbox called spinbox4 with range from 0 to 10 and width 5
+    set spinbox4 grid position to (5, 1)
+
+    function math():
+        set quantity1 to integer value of spinbox1.get()
+        set quantity2 to integer value of spinbox2.get()
+        set quantity3 to integer value of spinbox3.get()
+        set quantity4 to integer value of spinbox4.get()
+         p1 =category_price[combo.current()]
+         p2 =category_price2[combo2.current()]
+         p3 =category_price3[combo3.current()]
+         p4 =category_price4[combo4.current()]
+
+        if quantity1 is not set and p1 or quantity2 and p2 or quantity3 and p3 or quantity4 and p4:
+            show message box with text "Please select what you want to order and the quantity."
+            return
+
+        n1=categlory_names[combo.current()]
+        n2=categlory_names2[combo2.current()]
+        n3=categlory_names3[combo3.current()]
+         n4=categlory_names4[combo4.current()]
+         make global sum_1,order
+	
+         if quantity 1>0:
+	order.append(n1,p1 and quantity1)
+         if quantity 2>0:
+	order.append(n2,p2 and quantity2)
+          if quantity 3>0:
+	order.append(n3,p3 and quantity3)
+           if quantity 4>0:
+	order.append(n4,p4 and quantity4)
+           subtotal= quantity1*p1+quantity2*p2+quantity3*p3*quantity4*p4
+           sum-1=sum+subtotal
+           messagebox.showinfo: “Your order has been added.”
+ 	
+    Function view_order():
+	Global pri_ce
+	Pri_ce=””
+	For nam in order:
+		Pr_ice=pr_ice+”nam”
+		Pri_ice+f”Total price {sum_1}”
+	messagebox:”pr_ice”
+FUNCTION remove_item():
+	Global sum_1
+        set quantity1 to integer value of spinbox1.get()
+        set quantity2 to integer value of spinbox2.get()
+        set quantity3 to integer value of spinbox3.get()
+        set quantity4 to integer value of spinbox4.get()
+         p1 =category_price[combo.current()]
+         p2 =category_price2[combo2.current()]
+         p3 =category_price3[combo3.current()]
+         p4 =category_price4[combo4.current()]
+
+        if quantity1 is not set and p1 or quantity2 and p2 or quantity3 and p3 or quantity4 and p4:
+            show message box with text "Please select what you want to order and the quantity."
+            return
+
+        n1=categlory_names[combo.current()]
+        n2=categlory_names2[combo2.current()]
+        n3=categlory_names3[combo3.current()]
+         n4=categlory_names4[combo4.current()]
+         make global sum_1,order
+	
+         if quantity 1>0:
+	order.remove(n1,p1 and quantity1)
+         if quantity 2>0:
+	order.remove(n2,p2 and quantity2)
+          if quantity 3>0:
+	order.remove(n3,p3 and quantity3)
+           if quantity 4>0:
+	order.remove(n4,p4 and quantity4)
+           subtotal= quantity1*p1+quantity2*p2+quantity3*p3*quantity4*p4
+           sum-1=sum_1-subtotal
+           messagebox.showinfo: “Your order has been removed.”
+Function checkout():
+	Global sum_1
+	View_order()
+	Cancel_order()
+Def cancel_order():
+	Global sum_1
+	Sum_1=0
+	Order.clear()
+	Messagebox:”Your order has been cleared.”
+
+Btn_add_order=Button”Checkout”
+Btn_check=Button: “View order”
