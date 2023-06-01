@@ -1,0 +1,98 @@
+Pseudo code iteration 2:
+DICTIONARIES:
+BDSC_MENU{1:{1:{“hotnoodles”:3.50},{2:{Spaghetti:1.5……}}}}
+price{} 
+order{}
+calculation{}
+calculation2{}
+
+Define age function:
+	age=input: “Please enter your age:”
+	if age >=13 and age <=18:
+		print:”You are elegible”
+		run login function.
+age()
+FUNCTION Login:
+	While true:
+		Try:
+			Question=input: “Welcome to the BDSC  Café app 1.Add account, 2.Login, 3.Reset.”
+                        work=open account.txt file as read.
+			If question=1:
+				file=open account.txt file as append
+				file.write in txt: {ac_account} and {password}
+				print: “Account and password has been added”
+			If question=2:
+				With open txt file as file:
+					work=file.readlines()
+				For i in work:
+					Login_account,login_password=i.split(‘:’).strip()
+					If ac_account==account login and password=login password:
+						Run menu function
+			If question=3:
+				found=False
+				With open txt file as file:
+					work=file.readlines()
+				For i in work:
+					Login_account,login_password=i.split(‘:’).strip()
+					If ac_account==account login and password=login password:
+				  		Erase txt file. 
+						found=True
+			         		break
+				if found:
+					print:"Your username and password has been added."
+				else:
+					Print:“Incorrect password”
+					run login function
+
+			else:
+			   Print:Please enter the choices given
+		Except:
+			Print:"“Please enter a number”
+FUNCTION MATH:
+	While true:
+		Try:
+			q=int:input:”What would you like to order.”
+			If q in calculation2:
+				q2=int:input:”Enter the quantity”
+				if q2>0:
+					multiple=calculation2[q]*q2
+					sum=sum+multiple
+					for i in calculation:
+						if calculation[i]==calculation2[i]:
+							order[i]=q2
+							price[calculation2[q]]=q2
+							break
+					elif q==00:
+						run menu function()
+
+Function menu:
+	Global calculation,calculation2,sum
+	While true:
+		Try:
+			q=int:input:”What would you like to order? 1. Drinks, 2. Lunch,
+                                           3.Snacks and 4. Frozen,5 checkout”
+			
+			If q is in BDSC_MENU:
+				Print:”-------------------------------------”
+				category=BDSC_MENU[q]
+				For num in category:
+					selection=category[num]
+					for  name in selection:
+						print:{num}. {name}: ${selection}
+						calculation[name]=selection[name]
+						calculation2[num]=selection[name]
+				print:”-----------------------------------”
+				fun math function
+			or if q is =5:
+				if sum==0:
+					print: Please order something.
+				Else:
+					for i,pri in zip(order,price):
+						print:”{i},${pri.2f} x {order[i]}”
+					print:”Total price is ${sum.2f}”
+					clear order, price dictionaries 
+					sum=0 	
+			else:
+				print:”Please enter the choices given”
+		Except:
+			Print: Please enter the number.
